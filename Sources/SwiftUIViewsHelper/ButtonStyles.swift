@@ -8,8 +8,8 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct FullScreenWideButton: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
+public struct FullScreenWideButton: ButtonStyle {
+    public func makeBody(configuration: Configuration) -> some View {
         if #available(iOS 15.0, *) {
             configuration.label
                 .frame(maxWidth: .infinity, maxHeight: 44)

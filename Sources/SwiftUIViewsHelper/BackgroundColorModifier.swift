@@ -8,8 +8,8 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct BackgroundColorModifier: ViewModifier {
-    func body(content: Content) -> some View {
+public struct BackgroundColorModifier: ViewModifier {
+    public func body(content: Content) -> some View {
         if #available(iOS 17.0, *) {
             content
                 .containerRelativeFrame([.horizontal, .vertical])
