@@ -34,4 +34,7 @@ import SwiftUI
 @available(iOS 13.0, *)
 extension ButtonStyle where Self == FullScreenWideButton {
     public static var fullScreenWide: FullScreenWideButton { .init() }
+    
+    @available(iOS 16.4, *)
+    public static var roundedCorners: RoundedCorners { .init() }
 }

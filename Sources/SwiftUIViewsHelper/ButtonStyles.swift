@@ -24,6 +24,17 @@ public struct FullScreenWideButton: ButtonStyle {
     }
 }
 
+// TODO: Figure out button width and padding.
+@available(iOS 16.4, *)
+public struct RoundedCorners: ButtonStyle {
+    public func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundStyle(.white)
+            .background(.red)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+}
+
 @available(iOS 13.0, *)
 struct ButtonStylesPreview: View {
     var body: some View {
@@ -32,6 +43,20 @@ struct ButtonStylesPreview: View {
                 Text("Button")
             })
             .buttonStyle(FullScreenWideButton())
+            
+            if #available(iOS 15.0, *) {
+                Button(action: {}, label: {
+                    Text("Button")
+                })
+                .buttonStyle(.bordered)
+            }
+            
+            if #available(iOS 16.4, *) {
+                Button(action: {}) {
+                    Text("Button")
+                }
+                .buttonStyle(.roundedCorners)
+            }
         }
     }
 }
