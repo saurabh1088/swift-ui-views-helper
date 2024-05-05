@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 16.0, *)
-struct DismissibleView<Content: View>: View {
+public struct DismissibleView<Content: View>: View {
     let content: Content
     @Environment(\.dismiss) private var dismiss
     
@@ -16,7 +16,7 @@ struct DismissibleView<Content: View>: View {
         self.content = content()
     }
     
-    var body: some View {
+    public var body: some View {
         NavigationStack {
             VStack {
                 content
