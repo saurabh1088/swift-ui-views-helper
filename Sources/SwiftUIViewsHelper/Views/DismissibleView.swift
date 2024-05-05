@@ -12,7 +12,7 @@ public struct DismissibleView<Content: View>: View {
     let content: Content
     @Environment(\.dismiss) private var dismiss
     
-    init(@ViewBuilder _ content: @escaping () -> Content) {
+    public init(@ViewBuilder _ content: @escaping () -> Content) {
         self.content = content()
     }
     
