@@ -1,5 +1,5 @@
 //
-//  DismissibleView.swift
+//  DismissibleModalView.swift
 //
 //
 //  Created by Saurabh Verma on 05/05/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 16.0, *)
-public struct DismissibleView<Content: View>: View {
+public struct DismissibleModalView<Content: View>: View {
     let content: Content
     @Environment(\.dismiss) private var dismiss
     
@@ -41,7 +41,9 @@ public struct DismissibleView<Content: View>: View {
 
 @available(iOS 16.0, *)
 #Preview {
-    DismissibleView {
-        Text("Dismissible View")
+    DismissibleModalView {
+        Text("Dismissible Modal View")
     }
 }
+
+// TODO: This view works when presented modally. If attempted to pushed to navigation stack, it doesn't works.
