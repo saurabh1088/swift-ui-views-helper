@@ -9,11 +9,18 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public struct BackgroundColorModifier: ViewModifier {
+    
+    private var bgColor: Color
+    
+    public init(bgColor: Color) {
+        self.bgColor = bgColor
+    }
+    
     public func body(content: Content) -> some View {
         if #available(iOS 17.0, *) {
             content
                 .containerRelativeFrame([.horizontal, .vertical])
-                .background(Color.red)
+                .background(bgColor)
         } else {
             content
             // TODO: Figure out way to achive same for pre iOS 17 versions
@@ -25,7 +32,7 @@ public struct BackgroundColorModifier: ViewModifier {
 struct BackgroundColorModifierPreview: View {
     var body: some View {
         Text("Hello, World!")
-            .fullScreenBackgroundColorRed()
+            .fullScreenBackgroundWith(color: .red)
     }
 }
 

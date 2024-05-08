@@ -10,7 +10,7 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 extension View {
-    public func fullScreenBackgroundColorRed() -> some View {
-        modifier(BackgroundColorModifier())
+    public func fullScreenBackgroundWith(color: Color) -> some View {
+        modifier(BackgroundColorModifier(bgColor: color))
     }
 }

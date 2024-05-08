@@ -41,6 +41,6 @@ import SwiftUI
         Text("Full background red")
         Text("Covering safe area top and bottom as well")
     }
-    .fullScreenBackgroundColorRed()
+    .fullScreenBackgroundWith(color: .red)
 }
 
