@@ -26,13 +26,11 @@ public struct SelectableValueView: View {
     }
     
     public var body: some View {
-        NavigationStack {
-            VStack {
-                NavigationLink(title) {
-                    SelectableValueOptionsView(values: values, selectedValue: $selection)
-                }
-                .buttonStyle(.fullScreenWide)
+        VStack {
+            NavigationLink(title) {
+                SelectableValueOptionsView(values: values, selectedValue: $selection)
             }
+            .buttonStyle(.fullScreenWide)
         }
     }
 }
@@ -55,18 +53,20 @@ struct SelectableValueOptionsView: View {
                 Text(value)
             }
         }
-        .onChange(of: localSelection) {
+        .onChange(of: localSelection, initial: false, { oldValue, newValue in
             selectedValue = localSelection
             dismiss()
-        }
+        })
     }
 }
 
 
 @available(iOS 17.0, *)
 #Preview {
-    SelectableValueView(label: "Select", 
-                        values: ["Value 1",
-                                 "Value 2",
-                                 "Value 3"])
+    NavigationStack {
+        SelectableValueView(label: "Select",
+                            values: ["Value 1",
+                                     "Value 2",
+                                     "Value 3"])
+    }
 }
