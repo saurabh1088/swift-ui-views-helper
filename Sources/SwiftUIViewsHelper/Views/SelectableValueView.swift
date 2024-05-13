@@ -11,11 +11,12 @@ import SwiftUI
 public struct SelectableValueView: View {
     private var label: String
     private var values: [String]
-    @State private var selection: String?
+    @Binding private var selection: String?
     
-    public init(label: String, values: [String]) {
+    public init(label: String, values: [String], selection: Binding<String?>) {
         self.label = label
         self.values = values
+        self._selection = selection
     }
     
     private var title: String {
@@ -67,6 +68,7 @@ struct SelectableValueOptionsView: View {
         SelectableValueView(label: "Select",
                             values: ["Value 1",
                                      "Value 2",
-                                     "Value 3"])
+                                     "Value 3"], 
+                            selection: .constant("Select"))
     }
 }
